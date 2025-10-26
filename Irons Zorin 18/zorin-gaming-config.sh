@@ -33,9 +33,11 @@ sudo apt install -y default-jre
 echo 'Installing Discord'
 sudo dpkg -i ~/Installers/discord.deb
 
+echo 'Installing Lutris dependencies'
+sudo apt install -y cabextract fluid-soundfont-gm fluid-soundfont-gs python3-magic vulkan-tools
+
 echo 'Installing Lutris'
 sudo dpkg -i ~/Installers/lutris.deb
-sudo apt --fix-broken install
 
 echo 'Installing Steam'
 sudo dpkg -i ~/Installers/steam.deb
