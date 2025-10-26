@@ -25,7 +25,7 @@ The script creates a folder called `Installers` in your home directory for it to
 3. Follow the script through to completion.
 4. You will get a window pop up about Steam, click on **Start Steam** button.
    ![Press start steam](https://github.com/matthewstocker/System-Configuration-Scripts/blob/main/Irons%20Zorin%2018/img/steam1.png)
-5. You will then get a terminal pop up:
+5. You will then get a terminal pop up.
    ![](https://github.com/matthewstocker/System-Configuration-Scripts/blob/main/Irons%20Zorin%2018/img/steam2.png)
    Press Enter to allow the updates to take place (you may get asked to enter your password here).
 6. It will then ask you to install some packages:
