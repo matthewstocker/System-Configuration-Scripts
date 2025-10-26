@@ -3,60 +3,61 @@
 
 # Script setup
 # Make temp folder for installation files
+printf 'Creating temporary folders for installers'
 mkdir ~/Installers
 
 # Grab installation files needed
 echo 'Downloading Discord .deb package'
-wget -O ~/Installers/discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
+wget -O ~/Installers/discord.deb 'https://discord.com/api/download?platform=linux&format=deb' > /dev/null 2>&1
 
 echo 'Downloading latest Lutris release from GitHub'
 lutris_url=$(curl -s https://api.github.com/repos/lutris/lutris/releases/latest | jq -r '(.assets[].browser_download_url | select(. | contains("_all.deb")))')
-wget -O ~/Installers/lutris.deb $lutris_url
+wget -O ~/Installers/lutris.deb $lutris_url > /dev/null 2>&1
 
 echo 'Downloading latest Steam installer'
-wget -O ~/Installers/steam.deb 'https://cdn.akamai.steamstatic.com/client/installer/steam.deb'
+wget -O ~/Installers/steam.deb 'https://cdn.akamai.steamstatic.com/client/installer/steam.deb' > /dev/null 2>&1
 
 # Add repos
 echo 'Adding OBS PPA repository'
-sudo add-apt-repository -y ppa:obsproject/obs-studio
+sudo add-apt-repository -y ppa:obsproject/obs-studio > /dev/null 2>&1
 
 echo 'Adding XIVLauncher PPA repository'
-sudo add-apt-repository -y ppa:linneris/xivlauncher-core-stable
+sudo add-apt-repository -y ppa:linneris/xivlauncher-core-stable > /dev/null 2>&1
 
 # Update repos
-sudo apt update -y
+sudo apt update -y > /dev/null 2>&1
 
 # Install apps
 
 # Install Flatpaks
 echo 'Installing PokeMMO (Flatpak)'
-flatpak install -y com.pokemmo.PokeMMO
+flatpak install -y com.pokemmo.PokeMMO > /dev/null 2>&1
 
 echo 'Installing Cartridges'
-flatpak install -y flathub page.kramo.Cartridges
+flatpak install -y flathub page.kramo.Cartridges > /dev/null 2>&1
 
 # Install from repo
 echo 'Installing Java Runtime Environment'
-sudo apt install -y default-jre
+sudo apt install -y default-jre > /dev/null 2>&1
 
 echo 'Installing Lutris dependencies'
-sudo apt install -y cabextract fluid-soundfont-gm fluid-soundfont-gs python3-magic vulkan-tools
+sudo apt install -y cabextract fluid-soundfont-gm fluid-soundfont-gs python3-magic vulkan-tools > /dev/null 2>&1
 
 echo 'Installing OBS'
-sudo apt install -y obs-studio
+sudo apt install -y obs-studio > /dev/null 2>&1
 
 echo 'Installing XIVLauncher'
-sudo apt install -y xivlauncher-core
+sudo apt install -y xivlauncher-core > /dev/null 2>&1
 
 # Install .deb files
 echo 'Installing Discord'
-sudo dpkg -i ~/Installers/discord.deb
+sudo dpkg -i ~/Installers/discord.deb > /dev/null 2>&1
 
 echo 'Installing Lutris'
-sudo dpkg -i ~/Installers/lutris.deb
+sudo dpkg -i ~/Installers/lutris.deb > /dev/null 2>&1
 
 echo 'Installing Steam'
-sudo dpkg -i ~/Installers/steam.deb
+sudo dpkg -i ~/Installers/steam.deb > /dev/null 2>&1
 
 # Finally remove the temp folder
 echo 'Clearing up installers'
