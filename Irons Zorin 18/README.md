@@ -19,7 +19,7 @@ The script creates a folder called `Installers` in your home directory for it to
 ## How to run
 1. Load up a terminal window
 2. Run the following script to download and run the config script
-`wget -O - https://github.com/matthewstocker/System-Configuration-Scripts/blob/main/Irons%20Zorin%2018/zorin-gaming-config.sh | bash`
+`curl https://raw.githubusercontent.com/matthewstocker/System-Configuration-Scripts/main/Irons%20Zorin%2018/zorin-gaming-config.sh | bash`
 3. Follow the script through to completion.
 4. Enjoy!
 

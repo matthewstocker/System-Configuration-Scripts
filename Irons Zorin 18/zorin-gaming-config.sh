@@ -18,7 +18,7 @@ wget -O ~/Installers/steam.deb 'https://cdn.akamai.steamstatic.com/client/instal
 
 # Add repos
 echo 'Adding OBS PPA repository'
-add-apt-repository -y ppa:obsproject/obs-studio
+sudo add-apt-repository -y ppa:obsproject/obs-studio
 
 echo 'Adding XIVLauncher PPA repository'
 sudo add-apt-repository -y ppa:linneris/xivlauncher-core-stable
