@@ -27,20 +27,20 @@ sudo add-apt-repository -y ppa:linneris/xivlauncher-core-stable
 sudo apt update -y
 
 # Install apps
+
+# Install Flatpaks
+echo 'Installing PokeMMO (Flatpak)'
+flatpak install -y com.pokemmo.PokeMMO
+
+echo 'Installing Cartridges'
+flatpak install -y flathub page.kramo.Cartridges
+
+# Install from repo
 echo 'Installing Java Runtime Environment'
 sudo apt install -y default-jre
 
-echo 'Installing Discord'
-sudo dpkg -i ~/Installers/discord.deb
-
 echo 'Installing Lutris dependencies'
 sudo apt install -y cabextract fluid-soundfont-gm fluid-soundfont-gs python3-magic vulkan-tools
-
-echo 'Installing Lutris'
-sudo dpkg -i ~/Installers/lutris.deb
-
-echo 'Installing Steam'
-sudo dpkg -i ~/Installers/steam.deb
 
 echo 'Installing OBS'
 sudo apt install -y obs-studio
@@ -48,11 +48,15 @@ sudo apt install -y obs-studio
 echo 'Installing XIVLauncher'
 sudo apt install -y xivlauncher-core
 
-echo 'Installing PokeMMO (Flatpak)'
-flatpak install -y com.pokemmo.PokeMMO
+# Install .deb files
+echo 'Installing Discord'
+sudo dpkg -i ~/Installers/discord.deb
 
-echo 'Installing Cartridges'
-flatpak install -y flathub page.kramo.Cartridges
+echo 'Installing Lutris'
+sudo dpkg -i ~/Installers/lutris.deb
+
+echo 'Installing Steam'
+sudo dpkg -i ~/Installers/steam.deb
 
 # Finally remove the temp folder
 echo 'Clearing up installers'
