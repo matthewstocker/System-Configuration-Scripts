@@ -3,6 +3,16 @@
 
 # Script setup
 # Make temp folder for installation files
+echo 'Git configuration'
+echo '======================================================================='
+echo 'This script will be installing Git, and as part of the setup, you will need to provide your name and email address.'
+echo 'What is your name?'
+read username
+echo 'What is your email?'
+read useremail
+echo Thanks $username, and Ill set your email as $useremail
+echo '======================================================================='
+
 printf 'Creating temporary folders for installers'
 echo '======================================================================='
 mkdir ~/Installers
@@ -34,6 +44,12 @@ echo '======================================================================='
 echo 'Downloading Discord .deb package'
 echo '======================================================================='
 wget -O ~/Installers/discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
+echo '======================================================================='
+
+echo 'Downloading Git Credential Manager release from Github'
+echo '======================================================================='
+gcm_url=$(curl -s https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest | jq -r '(.assets[].browser_download_url | select(. | contains(".deb")))')
+wget -O ~/Installers/gcm.deb $gcm_url
 echo '======================================================================='
 
 echo 'Downloading latest Dopamine release from GitHub'
@@ -83,6 +99,13 @@ echo '======================================================================='
 sudo apt-get install google-chrome-stable
 echo '======================================================================='
 
+echo 'Installing Git'
+echo '======================================================================='
+sudo apt-get git
+git config --global user.email $useremail
+git config --global user.name $username
+echo '======================================================================='
+
 # Install .deb files
 echo 'Installing Discord'
 echo '======================================================================='
@@ -102,6 +125,13 @@ echo '======================================================================='
 echo 'Installing Obsidian'
 echo '======================================================================='
 sudo dpkg -i ~/Installers/dopamine.deb
+echo '======================================================================='
+
+echo 'Installing/Configuring Git Credential Manager'
+echo '======================================================================='
+sudo dpkg -i ~/Installers/gcm.deb
+git-credential-manager configure
+export GCM_CREDENTIAL_STORE=secretservice
 echo '======================================================================='
 
 # Configure and install NVIDIA driver
