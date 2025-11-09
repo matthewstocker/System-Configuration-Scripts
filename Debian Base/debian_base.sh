@@ -132,6 +132,7 @@ echo '======================================================================='
 sudo dpkg -i ~/Installers/gcm.deb
 git-credential-manager configure
 export GCM_CREDENTIAL_STORE=secretservice
+git config --global credential.credentialStore secretservice
 echo '======================================================================='
 
 # Configure and install NVIDIA driver
