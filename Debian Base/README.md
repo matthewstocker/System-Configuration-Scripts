@@ -21,7 +21,7 @@ The script creates a folder called `Installers` in your home directory for it to
 
 1. Load up a terminal window
 2. Run the following command in a Terminal to download and run the config script\
-   `curl https://raw.githubusercontent.com/matthewstocker/System-Configuration-Scripts/main/Irons%20Zorin%2018/zorin-gaming-config.sh | bash`
+   `curl https://raw.githubusercontent.com/matthewstocker/System-Configuration-Scripts/refs/heads/main/Debian%20Base/debian_base.sh | bash`
 3. Follow the script through to completion.
 4. You will get a window pop up about Steam, click on **Start Steam** button.
    ![Press start steam](https://github.com/matthewstocker/System-Configuration-Scripts/blob/main/Irons%20Zorin%2018/img/steam1.png)
